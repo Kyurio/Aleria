@@ -250,46 +250,53 @@ require_once RUTA_APP . '/vistas/inc/header.php';
 
                     <!-- formulario de configuracion de redes sociales -->
                     <div class="row">
+                      
+                      <!-- formulario -->
                       <div class="col-md-6">
-                        <form class="" action="index.html" method="post">
+                        <form class="" action="<?php echo RUTA_URL ?>pages/AddSocial" method="post">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Facebook</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="www.facebook.com/doublecode">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="facebook" placeholder="www.facebook.com/doublecode">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Twitter</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="@doublecode01">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text"  name="twitter" placeholder="@doublecode01">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Instagram</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="@doublecode01">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="instagram" placeholder="@doublecode01">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Linkedin</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="/doublecode">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="linkedin" placeholder="/doublecode">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Pinterest</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="@doublecode">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="pinterest" placeholder="@doublecode">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Google plus</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="@doublecode">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="google_plus" placeholder="@doublecode">
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Whatsapp</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="+569 65063392">
-                            <small id="emailHelp" class="form-text text-muted">se utilizara en el link en toda la web como acceso directo</small>
+                            <input class="form-control form-control-sm" type="text" name="whatsapp" placeholder="+569 65063392">
                           </div>
-                          <button type="button" class="btn btn-dark btn-sm" name="button">Grabar</button>
+                          <button type="submit" class="btn btn-dark btn-sm" name="button">Grabar</button>
                         </form>
                       </div>
+                      <!-- end formulario -->
+
+                      <!-- listado de redes sociales -->
+                      <div class="col-md-6">
+                        <ul class="list-group">
+                          <?php foreach ($datos['redes'] as $item): ?>
+                            <li class="list-group-item"><?php echo $item->facebook ?></li>
+                          <?php endforeach; ?>
+                        </ul>
+                      </div>
+
+                      <!-- end resultado -->
                     </div>
                     <!-- formulario de configuracion de redes sociales -->
 

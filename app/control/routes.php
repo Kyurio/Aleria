@@ -26,13 +26,15 @@ class routes extends control{
     $countMails = $this->CounterMail();
     $mailsReibicidos = $this->SelectMail();
     $productos = $this->SelectProductos();
+    $all_redes = $this->SelectSocial();
 
     $datos = [
 
       'cantidad_de_mails' => $countMails,
       'correos_recibidos' => $mailsReibicidos,
-      'productos' => $productos
-
+      'productos' => $productos,
+      'redes' => $all_redes,
+      
     ];
 
     $this->vista('pages/intranet', $datos);

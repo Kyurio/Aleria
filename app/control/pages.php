@@ -111,6 +111,51 @@ class pages extends routes{
 
   }
 
+  //graba las redes sociales
+  public function AddSocial(){
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+      $id_empresa = 1;
+      $facebook = trim($_POST['facebook']);
+      $twitter = trim($_POST['twitter']);
+      $google_plus = trim($_POST['google_plus']);
+      $linkedin = trim($_POST['linkedin']);
+      $instagram = trim($_POST['instagram']);
+      $pinterest = trim($_POST['pinterest']);
+      $whatsapp = trim($_POST['whatsapp']);
+
+      $columnas = array("id_empresa", "facebook", "twitter", "google_plus", "linkedin", "instagram", "pinterest", "whatsapp");
+      $datos =  array($id_empresa, $facebook, $twitter, $google_plus, $linkedin, $instagram, $pinterest, $whatsapp);
+
+      //ejecyta la insercion
+      if($this->ConfigModelo->insert('red_social', $columnas, $datos)){
+
+        $_SESSION["success"]=true;
+        redireccionar('pages/contacto');
+
+      }else{
+        echo false;
+      }
+
+    }else{
+
+      $columnas = "";
+      $datos = "";
+
+    }
+
+  }
+
+  //selecciona todas las redes sociales registradas
+  public function SelectSocial(){
+
+    $all_redes = ($this->ConfigModelo->select('select', 'red_social', '', '', '', ''));
+    return $all_redes;
+
+
+  }
+
   //seleccionar productos
   public function SelectProductos(){
 
