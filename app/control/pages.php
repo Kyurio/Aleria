@@ -10,7 +10,7 @@ class pages extends routes{
     $this->SessionModelo = $this->modelo('session');
 
   }
-
+  //registra un nuevo producto en la base de datos
   public function CrearProducto(){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

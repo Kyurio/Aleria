@@ -45,7 +45,7 @@ require_once RUTA_APP . '/vistas/inc/footer.php';
 
 
 <?php
-if (isset($_SESSION['success']) && $_SESSION['success'] != '' ) {
+if ( $_SESSION['success'] != '' ) {
   echo "
   <script>
 
