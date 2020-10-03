@@ -4,31 +4,41 @@ var intranet = new Vue({
 
   data: {
 
+    ejemplo: '',
+    estado: true,
+
   },
 
   mounted: function(){
+
+    this.escribir();
 
   },
 
   methods: {
 
-    Leido: function(id){
+    escribir: function(){
 
-      axios({
-        method: 'POST',
-        url: '/Aleria/pages/MensajeLeido',
-        data: {
-          id_mensaje: id,
-        }
+      console.log("test ejemplo");
 
-      }).then(function (response) {
+    },
 
-         console.log(response.data);
+    alert: function(){
 
-      });
+      alertify.alert('Alert Title', 'Alert Message!', function(){ alertify.success('Ok'); });
 
 
     },
+
+    ConsultarCategorias: function(){
+       capturador = this;
+       axios.get('/aleriaVue/pages/SelectCategorys', {
+       }).then(function (response) {
+         capturador.categorys = response.data;
+       });
+   },
+
+
 
 
   },

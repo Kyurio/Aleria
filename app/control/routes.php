@@ -14,6 +14,12 @@ class routes extends control{
     $this->vista('pages/inicio');
   }
 
+  //vuejs
+  public function vuetest(){
+    
+    $this->vista('pages/vuetest');
+  }
+
   // abre la pagina de conectos
   public function contacto(){
 
@@ -34,7 +40,7 @@ class routes extends control{
       'correos_recibidos' => $mailsReibicidos,
       'productos' => $productos,
       'redes' => $all_redes,
-      
+
     ];
 
     $this->vista('pages/intranet', $datos);

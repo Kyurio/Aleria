@@ -12,8 +12,9 @@
     //ruta de guardado de imagese
 
     //nombre de la aplicacin
-    define('NOMBRE_SITIO', 'Aleria');
+    define('NOMBRE_SITIO', 'ejemplo');
     define('ESLOGAN', 'eslogan de la app');
+
 
 
 ?>

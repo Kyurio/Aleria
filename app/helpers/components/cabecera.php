@@ -28,6 +28,9 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" id="config-tab" data-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false"><i class="fas fa-cog"></i> Configuracion</a>
       </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="config-tab" data-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false"><i class="fas fa-cog"></i> perros</a>
+      </li>
 
     </ul>
   </div>
