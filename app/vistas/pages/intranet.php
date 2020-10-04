@@ -18,6 +18,92 @@ require_once RUTA_APP . '/vistas/inc/header.php';
         <div class="card">
           <div class="card-body">
             <h6 class="font-weight-bold">dashboard</h6>
+
+            <!-- dashboard -->
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+
+                    <h3>Clientes</h3>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+
+                    <h3>Visitas</h3>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card shadow">
+                  <div class="card-body">
+
+                    <h3>Redes Sociales</h3>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- end dashboard -->
+
+            <!-- div grafico estads visitas -->
+            <div class="row mt-3">
+              <div class="col-xl-8">
+                <div class="card shadow">
+                  <div class="card-body">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-4">
+                <div class="card shadow">
+                  <div class="card-body">
+
+                    <div class="d-flex">
+
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+
+                          <div class="p-2">Flex item</div>
+
+                          <div class="ml-auto">
+                            <span class="badge badge-success">
+                              22%<i class="fa fa-arrow-up"></i>
+                            </span>
+                          </div>
+
+                        </li>
+                        <li class="list-group-item">
+                          Traffic<span class="badge badge-danger ml-auto">5%<i class="fa fa-arrow-down ml-1"></i></span>
+                        </li>
+                        <li class="list-group-item">
+                          Orders
+                          <span class="badge badge-info ml-auto">14</span>
+                        </li>
+                        <li class="list-group-item">
+                          Issues
+                          <span class="badge badge-info ml-auto">123</span>
+                        </li>
+                        <li class="list-group-item">
+                          Messages<span class="badge badge-info ml-auto">8</span>
+                        </li>
+                      </ul>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end div grafico visitas -->
+
+
           </div>
         </div>
       </div>
@@ -92,8 +178,10 @@ require_once RUTA_APP . '/vistas/inc/header.php';
                         </div>
                       </div>
                       <!-- end modal editar -->
-
-                      <button type="button" class="btn btn-sm btn-danger" title="eliminar" name="button"><i class="fas fa-trash"></i></button>
+                      <form class="" action="<?php echo RUTA_URL ?>pages/EliminarProducto" method="post">
+                        <input type="hidden" name="id_producto" value="<?php echo $item->id_producto; ?>">
+                        <button type="submit" class="btn btn-sm btn-danger" title="eliminar" name="button"><i class="fas fa-trash"></i></button>
+                      </form>
                       <button type="button" class="btn btn-sm btn-info" title="descativar" name="button"><i class="fas fa-ban"></i></button>
                       <button type="button" class="btn btn-sm btn-success" title="activar" name="button"><i class="fas fa-check"></i></button>
                     </td>
@@ -222,6 +310,23 @@ require_once RUTA_APP . '/vistas/inc/header.php';
 
     </div>
 
+    <div class="tab-pane fade" id="blog" role="tabpanel" aria-labelledby="blog-tab">
+
+      <!-- contenido de configuracion -->
+      <div class="mt-2 py-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="font-weight-bold">Blog</h6>
+            <hr>
+
+          </div>
+        </div>
+        <!-- contenido de configuracion -->
+
+      </div>
+
+    </div>
+
     <div class="tab-pane fade" id="config" role="tabpanel" aria-labelledby="config-tab">
 
       <!-- contenido de configuracion -->
@@ -250,7 +355,7 @@ require_once RUTA_APP . '/vistas/inc/header.php';
 
                     <!-- formulario de configuracion de redes sociales -->
                     <div class="row">
-                      
+
                       <!-- formulario -->
                       <div class="col-md-6">
                         <form class="" action="<?php echo RUTA_URL ?>pages/AddSocial" method="post">
@@ -397,4 +502,17 @@ require_once RUTA_APP . '/vistas/inc/header.php';
 
   <?php
   require_once RUTA_APP . '/vistas/inc/footer.php';
+  ?>
+
+  <?php
+  if ( $_SESSION['success'] != '' ) {
+    echo "
+    <script>
+
+      var notification = alertify.notify('".$_SESSION["mensaje"]."', 'success', 5, function(){  console.log('dismissed'); });
+
+    </script>
+    ";
+    $_SESSION['success'] = "";
+  }
   ?>

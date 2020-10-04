@@ -11,6 +11,13 @@ class pages extends routes{
 
   }
   //registra un nuevo producto en la base de datos
+
+  //genera  un nuevo post
+  public function CrearPost(){
+
+
+  }
+
   public function CrearProducto(){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,6 +36,33 @@ class pages extends routes{
       if($this->ConfigModelo->insert('productos', $columnas, $datos)){
 
         $_SESSION["success"]=true;
+        $_SESSION["mensaje"]="Producto creado con exito";
+        redireccionar('pages/intranet');
+
+      }else{
+        echo false;
+      }
+
+    }else{
+
+      $columnas = "";
+      $datos = "";
+
+    }
+  }
+
+  public function EliminarProducto(){
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
+      $Id = trim($_POST['id_producto']);
+
+      //ejecyta la insercion
+      if($this->ConfigModelo->delete('productos', 'id_producto', $Id)){
+
+        $_SESSION["success"]=true;
+        $_SESSION["mensaje"]="Producto eliminado con exito";
         redireccionar('pages/intranet');
 
       }else{

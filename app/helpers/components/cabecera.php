@@ -26,11 +26,12 @@
         <a class="nav-link" id="clientes-tab" data-toggle="tab" href="#clientes" role="tab" aria-controls="clientes" aria-selected="false"><i class="fas fa-user"></i> clientes</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="config-tab" data-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false"><i class="fas fa-cog"></i> Configuracion</a>
+        <a class="nav-link" id="blog-tab" data-toggle="tab" href="#blog" role="tab" aria-controls="blog" aria-selected="false"><i class="fas fa-file"></i> Blog</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="config-tab" data-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false"><i class="fas fa-cog"></i> perros</a>
+        <a class="nav-link" id="config-tab" data-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false"><i class="fas fa-cog"></i> Configuracion</a>
       </li>
+
 
     </ul>
   </div>

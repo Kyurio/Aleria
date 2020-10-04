@@ -14,14 +14,14 @@ class routes extends control{
     $this->vista('pages/inicio');
   }
 
-  //vuejs
-  public function vuetest(){
-    
-    $this->vista('pages/vuetest');
-  }
-
   // abre la pagina de conectos
   public function contacto(){
+
+    $this->vista('pages/contacto');
+  }
+
+  //pestaña de Nosotros
+  public function nostros(){
 
     $this->vista('pages/contacto');
   }
@@ -46,6 +46,7 @@ class routes extends control{
     $this->vista('pages/intranet', $datos);
   }
 
+  // abre los productos publicados
   public function productos(){
 
     $this->vista('pages/productos');
@@ -80,12 +81,6 @@ class routes extends control{
     }//end if
 
 
-  }
-
-  // grabar simulacion
-  public function test(){
-
-    $this->vista('pages/test');
   }
 
 }//end class
