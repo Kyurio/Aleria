@@ -1,10 +1,16 @@
 .navbar{
   background-color: $colorPrincipal !important;
-  padding: 5rem;
+  padding: 1rem;
   a{
     color: $white !important;
   }
+  a:hover{
+
+    color: $colorContrastSecundario !important;
+
+  }
 }
+
 
 .social{
 
@@ -41,6 +47,7 @@
 
   }
 }
+
 // clases especificas
 .mt-10{
   padding-top: 10rem!important;

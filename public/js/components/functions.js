@@ -1,4 +1,4 @@
-// maneter el tab seleccionado
+
 $(document).ready(function(){
   $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
     localStorage.setItem('activeTab', $(e.target).attr('href'));
@@ -8,3 +8,11 @@ $(document).ready(function(){
     $('#myTab a[href="' + activeTab + '"]').tab('show');
   }
 });
+
+
+//activa el edito de texto enriquecido
+ClassicEditor
+.create( document.querySelector( '#editor' ) )
+.catch( error => {
+  console.error( error );
+} );

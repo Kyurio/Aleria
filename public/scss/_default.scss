@@ -4,13 +4,3 @@ body{
   background-color: $backgroundColor;
 
 }
-
-a{
-  color: $black!important;
-  :hover{
-    color: $colorSecundario!important;
-  }
-  :active{
-    color: $colorSecundario!important;
-  }
-}

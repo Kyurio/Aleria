@@ -18,14 +18,17 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- axios -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- editor text -->
+<script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+<!-- chartjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
 <!-- alertify -->
 <script src="<?php echo RUTA_URL ?>public/js/assets/alertifyjs/alertify.min.js"></script>
 <!-- componentes notifiaciones -->
 <script src="<?php echo RUTA_URL ?>public/js/components/alerts.js"></script>
 <!-- componentes funciones -->
-<script src="<?php echo RUTA_URL ?>public/js/components/functions.js"></script>
+<script src="<?php echo RUTA_URL ?>public/js/components/functions.js" defer></script>
 <!-- functions vuejs -->
 <script src="<?php echo RUTA_URL ?>public/js/vue/app.js"></script>
-
 </body>
 </html>

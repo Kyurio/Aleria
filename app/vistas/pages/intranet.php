@@ -57,7 +57,9 @@ require_once RUTA_APP . '/vistas/inc/header.php';
               <div class="col-xl-8">
                 <div class="card shadow">
                   <div class="card-body">
-
+                    <!-- grafico -->
+                      <canvas id="canvas"></canvas>
+                    <!-- end grafico -->
                   </div>
                 </div>
               </div>
@@ -69,15 +71,10 @@ require_once RUTA_APP . '/vistas/inc/header.php';
 
                       <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-
-                          <div class="p-2">Flex item</div>
-
-                          <div class="ml-auto">
-                            <span class="badge badge-success">
-                              22%<i class="fa fa-arrow-up"></i>
-                            </span>
-                          </div>
-
+                          Flex item
+                          <span class="badge badge-success">
+                            22%<i class="fa fa-arrow-up"></i>
+                          </span>
                         </li>
                         <li class="list-group-item">
                           Traffic<span class="badge badge-danger ml-auto">5%<i class="fa fa-arrow-down ml-1"></i></span>
@@ -142,48 +139,58 @@ require_once RUTA_APP . '/vistas/inc/header.php';
                     <td><?php echo $item->estado ?></td>
                     <td><?php echo $item->precio ?></td>
                     <td>
-                      <button type="button" data-toggle="modal" data-target="#EditarModal<?php echo $item->id_producto?>" class="btn btn-sm btn-primary" title="editar" name="button"><i class="fas fa-pen"></i></button>
 
-                      <!-- edit agregar -->
-                      <div class="modal fade" id="EditarModal<?php echo $item->id_producto ?>" tabindex="-1" aria-labelledby="EditarModal" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="Edit">Editar: </h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form class="" action="<?php echo  RUTA_URL ?>pages/EditarProducto" method="post">
-                                <div class="form-group">
-                                  <label for="NombreProducto">Nombre Producto</label>
-                                  <input type="text" class="form-control" id="NombreProducto" value="<?php echo $item->nombre ?>" aria-describedby="NombreProducto" placeholder="Nombre Producto">
-                                </div>
-                                <div class="form-group">
-                                  <label for="NombreProducto">Cantidad</label>
-                                  <input type="number" min="1" class="form-control" id="CantidadProducto" name="CantidadProducto" value="<?php echo $item->cantidad ?>" aria-describedby="CantidadProducto" placeholder="Cantidad Producto">
-                                </div>
-                                <div class="form-group">
-                                  <label for="PrecioProducto">Precio</label>
-                                  <input type="number" min="1" class="form-control" id="PrecioProducto" name="PrecioProducto" value="<?php echo $item->precio ?>" aria-describedby="PrecioProducto" placeholder="Precio Producto">
-                                </div>
-                              </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-sm btn-primary">Grabar</button>
+
+                      <div class="form-row ">
+                        <button type="button" data-toggle="modal" data-target="#EditarModal<?php echo $item->id_producto?>" class="btn btn-sm btn-primary mr-1" title="editar" name="button"><i class="fas fa-pen"></i></button>
+                        <!-- edit agregar -->
+                        <div class="modal fade" id="EditarModal<?php echo $item->id_producto ?>" tabindex="-1" aria-labelledby="EditarModal" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="Edit">Editar: </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form class="" action="<?php echo  RUTA_URL ?>pages/EditarProducto" method="post">
+                                  <div class="form-group">
+                                    <label for="NombreProducto">Nombre Producto</label>
+                                    <input type="text" class="form-control" id="NombreProducto" value="<?php echo $item->nombre ?>" aria-describedby="NombreProducto" placeholder="Nombre Producto">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="NombreProducto">Cantidad</label>
+                                    <input type="number" min="1" class="form-control" id="CantidadProducto" name="CantidadProducto" value="<?php echo $item->cantidad ?>" aria-describedby="CantidadProducto" placeholder="Cantidad Producto">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="PrecioProducto">Precio</label>
+                                    <input type="number" min="1" class="form-control" id="PrecioProducto" name="PrecioProducto" value="<?php echo $item->precio ?>" aria-describedby="PrecioProducto" placeholder="Precio Producto">
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-sm btn-primary">Grabar</button>
+                              </div>
                             </div>
                           </div>
                         </div>
+                        <!-- end modal editar -->
+                        <form action="<?php echo RUTA_URL ?>pages/EliminarProducto" method="post">
+                          <input type="hidden" name="id_producto" value="<?php echo $item->id_producto; ?>">
+                          <button type="submit" class="btn btn-sm btn-danger" title="eliminar" name="Eliminar"><i class="fas fa-trash"></i></button>
+                        </form>
+                        <form  action="<?php echo RUTA_URL ?>pages/EliminarProducto" method="post">
+                          <button type="button" class="btn btn-sm btn-info ml-1" title="descativar" name="Descativar"><i class="fas fa-ban"></i></button>
+                        </form>
+                        <form action="<?php echo RUTA_URL ?>pages/EliminarProducto" method="post">
+                          <button type="button" class="btn btn-sm btn-success ml-1" title="activar" name="Activar"><i class="fas fa-check"></i></button>
+                        </form>
                       </div>
-                      <!-- end modal editar -->
-                      <form class="" action="<?php echo RUTA_URL ?>pages/EliminarProducto" method="post">
-                        <input type="hidden" name="id_producto" value="<?php echo $item->id_producto; ?>">
-                        <button type="submit" class="btn btn-sm btn-danger" title="eliminar" name="button"><i class="fas fa-trash"></i></button>
-                      </form>
-                      <button type="button" class="btn btn-sm btn-info" title="descativar" name="button"><i class="fas fa-ban"></i></button>
-                      <button type="button" class="btn btn-sm btn-success" title="activar" name="button"><i class="fas fa-check"></i></button>
+
+
+
                     </td>
                   </tr>
                 <?php endforeach; ?>
@@ -202,22 +209,28 @@ require_once RUTA_APP . '/vistas/inc/header.php';
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form class="" action="<?php echo  RUTA_URL ?>pages/CrearProducto" method="post">
-                      <div class="form-group">
-                        <label for="NombreProducto">Nombre Producto</label>
-                        <input type="text" class="form-control" id="NombreProducto" name="NombreProducto" aria-describedby="NombreProducto" placeholder="Nombre Producto">
-                      </div>
-                      <div class="form-group">
-                        <label for="NombreProducto">Cantidad</label>
-                        <input type="number" min="1" class="form-control" id="CantidadProducto" name="CantidadProductos" aria-describedby="CantidadProducto" placeholder="Cantidad Producto">
-                      </div>
-                      <div class="form-group">
-                        <label for="PrecioProducto">Precio</label>
-                        <input type="number" min="1" class="form-control" id="PrecioProducto"  name="PrecioProducto" aria-describedby="PrecioProducto" placeholder="Precio Producto">
-                      </div>
-                      <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-sm btn-primary">Grabar</button>
-                    </form>
+
+                    <div class="form-row align-items-center">
+                      <form action="<?php echo  RUTA_URL ?>pages/CrearProducto" method="post">
+
+                        <div class="form-group">
+                          <label for="NombreProducto">Nombre Producto</label>
+                          <input type="text" class="form-control" id="NombreProducto" name="NombreProducto" aria-describedby="NombreProducto" placeholder="Nombre Producto">
+                        </div>
+                        <div class="form-group">
+                          <label for="NombreProducto">Cantidad</label>
+                          <input type="number" min="1" class="form-control" id="CantidadProducto" name="CantidadProductos" aria-describedby="CantidadProducto" placeholder="Cantidad Producto">
+                        </div>
+                        <div class="form-group">
+                          <label for="PrecioProducto">Precio</label>
+                          <input type="number" min="1" class="form-control" id="PrecioProducto"  name="PrecioProducto" aria-describedby="PrecioProducto" placeholder="Precio Producto">
+                        </div>
+                        <button type="button" class="col-auto btn btn-sm btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="col-auto btn btn-sm btn-primary">Grabar</button>
+
+                      </form>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -319,12 +332,32 @@ require_once RUTA_APP . '/vistas/inc/header.php';
             <h6 class="font-weight-bold">Blog</h6>
             <hr>
 
+            <!-- form blog -->
+            <form>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Titulo</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Subtitulo</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+
+              <div class="form-group">
+                <div id="editor"> </div>
+              </div>
+
+            </form>
+            <!-- end form blog -->
+
           </div>
+          <!-- contenido de configuracion -->
+
         </div>
-        <!-- contenido de configuracion -->
 
       </div>
-
     </div>
 
     <div class="tab-pane fade" id="config" role="tabpanel" aria-labelledby="config-tab">
@@ -509,7 +542,7 @@ require_once RUTA_APP . '/vistas/inc/header.php';
     echo "
     <script>
 
-      var notification = alertify.notify('".$_SESSION["mensaje"]."', 'success', 5, function(){  console.log('dismissed'); });
+    var notification = alertify.notify('".$_SESSION["mensaje"]."', 'success', 5, function(){  console.log('dismissed'); });
 
     </script>
     ";
